@@ -25,46 +25,46 @@ For better or worse, people's perception of tech giants have changed over time. 
 
 The old Twitter data were provided, but for the new Twitter data, I used tweepy and Twitter's developer API to collect 1,500 recent tweets for each of the three companies: Apple, Google, and Android. <br>
 
-![apple_gather](images/apple_gather.JPG)<br>
-![rest_gather](images/google_android_gather.JPG)<br>
+![apple_gather](image/apple_gather.JPG)<br>
+![rest_gather](image/google_android_gather.JPG)<br>
 
 I also decided that it would be best to exclude tweets that contained more than one company names, and for Apple, since there were multiple related words/phrases, more filtering had to be done.<br>
 
 <a id='DataCleaning'></a>
 ## Data Cleaning
 First, I had to create a text cleaner to help get rid of non asc-ii characters and other pieces of strings that I did not need.<br>
-![cleaner](images/textcleaner.JPG)<br>
+![cleaner](image/textcleaner.JPG)<br>
 I noticed that many of the tweets did not contain any product or company names. Using regular expression, I looked for the company names in the text and gave values to the product or company column.<br>
-![companyname](images/company_name.JPG)<br>
+![companyname](image/company_name.JPG)<br>
 For rows that already contained a company name or product name, I decided to reduce the number of options into three: Apple, Google, and Android.
 
 ### VADER Sentiment Analysis
 From the VADER sentiment analysis, I collected the 'compound' values as they represented the most accurate sentiment depiction. If the values were bigger than or equal to .05, it was considered positive; if less than or equal to -.05, negative; and the rest were considered neutral.  <br>
-![vader](images/vader.JPG)
+![vader](image/vader.JPG)
 The following shows the distribution of the sentiments. <br>
 Old Tweet<br>
-![old_senti](images/old_sentiment.png)<br>
+![old_senti](image/old_sentiment.png)<br>
 New Tweet<br>
-![new_senti](images/new_sentiment.png)<br>
+![new_senti](image/new_sentiment.png)<br>
 
 From these distributions I noticed that 0 was the most common sentiment value and that the number of negative tweets were much lower those of positive and neutral tweets.<br>
 Old Tweet<br>
-![old_count](images/old_valuecounts.png)<br>
+![old_count](image/old_valuecounts.png)<br>
 New Tweet<br>
-![new_count](images/new_valuecounts.png)<br>
+![new_count](image/new_valuecounts.png)<br>
 
 <a id='DataModeling'></a>
 
 ### Tokenizing and Stop Words
 For NLP analysis, it is important to have a token list. Token list is splitting a text file into words or characters.<br>
-![token](images/token.JPG)<br>
+![token](image/token.JPG)<br>
 Using this, I created a frequency distribution plot of the most commonly used words/characters<br>
-![token_old](images/token_old.png)<br>
+![token_old](image/token_old.png)<br>
 Then I created a list of common stopwords, added punctuations, as well as the company names and other common Twitter terms.<br>
-![stopwords](images/stopwords.JPG)<br>
+![stopwords](image/stopwords.JPG)<br>
 First, I created a horizontal frequency distribution plot that used a token list from both the old and new tweets, then I created the same frequency distribution plot that used the stop words.<br>
-![total_freq](images/total_freq.png)<br>
-![total_freq_stop](images/total_freq_stop.png)<br>
+![total_freq](image/total_freq.png)<br>
+![total_freq_stop](image/total_freq_stop.png)<br>
 
 
 
