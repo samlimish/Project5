@@ -1,7 +1,7 @@
 # Capstone Project: Compare Consumer Sentiments of Apple, Google, and Android from Past to Present
 
-**Instructor:**James Irving <br>
-**Date:**7/23/21
+**Instructor:** James Irving <br>
+**Date:** 7/23/21
 
 ## Contents
  - <a href='#BusinessProblem'> Business Problem </a>
