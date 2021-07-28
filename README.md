@@ -8,6 +8,7 @@
  - <a href='#Datacollection'> Data Collection </a>
  - <a href='#DataCleaning'> Data Cleaning </a>
  - <a href='#DataModeling'> Data Modeling</a>
+ - <a href='#WordCloud'> Word Cloud</a>
  - <a href='#Recommendation'> Recommendation </a>
  - <a href='#Conclusion'> Conclusion </a>
 
@@ -53,7 +54,10 @@ Old Tweet<br>
 New Tweet<br>
 ![new_count](image/new_valuecounts.png)<br>
 
-<a id='DataModeling'></a>
+When I compared the initially given emotion of the tweets to the emotion results from vader sentiment analysis, only slightly more than half of the tweets' sentiment had been correctly identified.
+![vader_compare](image/vader_match.JPG)
+
+
 
 ### Tokenizing and Stop Words
 For NLP analysis, it is important to have a token list. Token list is splitting a text file into words or characters.<br>
@@ -66,9 +70,30 @@ First, I created a horizontal frequency distribution plot that used a token list
 ![total_freq](image/total_freq.png)<br>
 ![total_freq_stop](image/total_freq_stop.png)<br>
 
-
+<a id='DataModeling'></a>
 
 ## Data Modeling
+For modeling, I chose Random Forest and Naive Bayesian models. I chose them because they were the best fit for doing NLP analysis. The random forest models for both the old and new tweets were created without any parameters at first, then it was pipelined, then refined again using GridSearch CV. In general, the recall score for the negative tweets were much lower than those of its counterparts. This is becaus, as mentioned before, the total number of negative tweets were much smaller than those of positive tweets or neutral tweets.<br>
+### Random Forest
+![old_rf](image/old_rf.JPG)<br>
+Old Tweet Random Forest with grid search<br>
+![old_rf_gs](image/old_rf_gs.JPG)<br>
+New Tweet Random Forest with grid search <br>
+![new_rf_gs](image/new_rf_gs.JPG)<br>
+### Naive Bayesian
+Comapred to the random forest models, the navie bayesian models did not perform as well, especially before performing the grid search.<br>
+![old_nb](image/old_nb.JPG)<br>
+As can be seen, the recall score for the negative tweets are extremely low. This however improves after performing the grid search.<br>
+Old Naive Bayesian with grid search <br>
+![old_nb_gs](image/old_nb_gs.JPG)<br>
+New Naive Bayesian with grid search <br>
+![new_nb_gs](image/new_nb_gs.JPG)<br>
+While the recall scores for the naive bayesian models with grid search are decent, the recall score for the neutral tweets from the new tweets are significantly lower than those of the random forest even though the number of neutral tweets were large.<br>
+
+<a id='WordCloud'></a>
+## Word Cloud
+Using the tokens and stop words from above, I created some word clouds. The first word cloud shows common words from the tweets that talked about apple and had a positive sentiment in the old twitter. 
+![wc_apple_old_pos](image/wc_apple_old_pos.jpeg)<br>
 
 
 <a id='Recommendation'></a>
