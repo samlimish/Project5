@@ -33,7 +33,7 @@ select_company = st.sidebar.selectbox('Select company', old_tweet['product or co
 select_time = st.sidebar.select_slider('Old or New', ['Old', 'New'], key='time')
 
 emotion_data=old_tweet[old_tweet['vader_emotion']==select_company]
-select_status = st.sidebar.multiselect('Consumer sentiment of the company', ('Negative','Neutral','Positive'))
+select_status = st.sidebar.multiselect('Consumer sentiment of the company', ('Negative','Neutral','Positive'), default=['Neutral'])
 
 def to_dashboard(data):
     data=data[data['product or company']==select_company]
@@ -66,18 +66,6 @@ def to_dashboard(data):
 # to be displayed at the same time
 
 
-
-if st.sidebar.checkbox('Show tweet emotion by company', True, key='2'):
-    st.markdown('## **Comparison of Twitter Sentiment Analysis by Company**')
-    if select_time == 'Old':#st.get_option('time') == 'Old':
-        tweet = to_dashboard(old_tweet)
-        graph = px.bar(tweet, x='Emotion',
-                        y='Number of Tweets')
-    elif select_time== 'New':#st.get_option('time') == 'New':
-        tweet = to_dashboard(new_tweet)
-        graph = px.bar(tweet, x='Emotion',
-                        y='Number of Tweets')
-    st.plotly_chart(graph)
 def wordcloud_generator(text, cmap=None, stopwords=','.join(str(stop) for stop in stop_words), min_font=12, n_grams=True, title='Word Cloud'):
     st.write(select_status)
     cloud = WordCloud(colormap=cmap, stopwords=stopwords, width=650, height=400, min_font_size=min_font,\
@@ -89,11 +77,17 @@ def wordcloud_generator(text, cmap=None, stopwords=','.join(str(stop) for stop i
     ax.margins(x=0, y=0)
     ax.axis('off')
     st.image(cloud.to_array())
-
-
-if st.sidebar.checkbox('Show Wordcloud', True):
-    st.markdown('## **Wordcloud**')
-    
+def return_graph(select_time):
+    if select_time == 'Old':
+        tweet = to_dashboard(old_tweet)
+        graph = px.bar(tweet, x='Emotion',
+                        y='Number of Tweets')
+    elif select_time== 'New':
+        tweet = to_dashboard(new_tweet)
+        graph = px.bar(tweet, x='Emotion',
+                        y='Number of Tweets')
+    st.plotly_chart(graph)
+def wc_plot(select_time, select_company, select_status):
     if select_time == 'Old':
         text1 = old_tweet[(old_tweet['product or company']==select_company)].copy()
         
@@ -111,5 +105,25 @@ if st.sidebar.checkbox('Show Wordcloud', True):
 
             text += ','.join(text2['clean_text'])
             wordcloud_generator(text, cmap='Set1')
+if st.sidebar.checkbox('Show tweet emotion by company', True, key='2'):
+    st.markdown('## **Comparison of Twitter Sentiment Analysis by Company**')
+    return_graph(select_time)
+
+if st.sidebar.checkbox('Show Wordcloud', True):
+    st.markdown('## **Wordcloud**')
+    wc_plot(select_time, select_company, select_status)
+    
+# def get_data(sentiment=select_status, companies=select_company, time=select_time):
+#     data=[[sentiment], [ companies], [time]]
+#     df=pd.DataFrame(data, columns=['Sentiment', 'Companies','Time'])
+#     return df
+# st.plotly_chart(to_dashboard(), )
+
+# df=get_data
+
+# with open('../README.md', 'r') as f:
+#     README = f.read()
 
 
+# if __name__ == '__main__':
+#     app.run_server(debug=False, host = '127.0.0.1')
