@@ -121,12 +121,14 @@ These are some of the most commonly appearing words in the word clouds that show
  - Like the tweets about Apple, people seem to use their phones for music apps more. 
  - From the wording in the old tweets, there is a rivalry between the users of Android phones and iPhone users, which we can no longer observe in the new tweets.
 <br>
+
 ![wc_android_old_neut](image/old_android_neut.png)<br>
 ![wc_android_new_neut](image/new_android_neut.png)<br>
  - Old Tweet: app, New, Time, iOS, access, Platform, ChromeOS
  - New Tweet: app, music, Download, RADIO APP, iOS
  - Both old and new tweets seem to focus on Android apps, and judging form the word iOS, these tweets seem to either compare the type of apps or show the availability in both the Google Play Store and the iOS App Store. 
 <br>
+
 ![wc_google_old_neut](image/old_google_neut.png)<br>
 ![wc_google_new_neut](image/new_android_neut.png)<br>
  - Old Tweet: New Social, map, great, party, Social Network
