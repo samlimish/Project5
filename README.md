@@ -96,14 +96,51 @@ While the recall scores for the naive bayesian models with grid search are decen
 
 <a id='WordCloud'></a>
 ## Word Cloud
-Using the tokens and stop words from above, I created some word clouds. The first two images of word clouds show common words from the tweets that had positive sentiment towards Apple in the old and new twitter.<br> 
+Using the tokens and stop words from above, I created some word clouds. The first two images of word clouds show common words from the tweets that had positive sentiment towards Apple in the old and new tweets.<br> 
 ![wc_apple_old_pos](image/old_apple_pos.png)<br>
 ![wc_apple_new_pos](image/new_apple_pos.png)<br>
+These are some of the most commonly appearing words in the word clouds that show how and why the sentiment towards the company has changed. These words and reason(s) for the sentiment change will be provided after each set of word cloud.<br>
+ - Old Tweet: store, app, line, opening, win, great, Thank, want
+ - New Tweet: music, like, phone, Spotify, want, Watch
+ - Words associated with positive sentiment seems to change from one's experience at the Apple store or using their product apps such as Apple Music or Spotify. 
+<br>
 
 ![wc_apple_old_neg](image/old_apple_neg.png)<br>
 ![wc_apple_new_neg](image/new_apple_neg.png)<br>
 
+ - Old Tweet: store, line, block, need, crazy
+ - New Tweet: price yet, people text, problem, stop, minutes drop
+ - As with before, the negative sentiment towards Apple has shifted from the Apple experience to people's discontent towards Apple's products and prices. 
+ - Cashtag, get paid, cashtag name are all from advertisements that use an app called Cashpay. PayPal also seems to be associated with advertisements. 
+<br>
 
+![wc_android_old_pos](image/old_android_pos.png)<br>
+![wc_android_new_pos](image/new_android_pos.png)<br>
+ - Old Tweet: Team, App, wins best, phone, best Android
+ - New Tweet: app, music phone, device, Easy access
+ - Like the tweets about Apple, people seem to use their phones for music apps more. 
+ - From the wording in the old tweets, there is a rivalry between the users of Android phones and iPhone users, which we can no longer observe in the new tweets.
+<br>
+![wc_android_old_neut](image/old_android_neut.png)<br>
+![wc_android_new_neut](image/new_android_neut.png)<br>
+ - Old Tweet: app, New, Time, iOS, access, Platform, ChromeOS
+ - New Tweet: app, music, Download, RADIO APP, iOS
+ - Both old and new tweets seem to focus on Android apps, and judging form the word iOS, these tweets seem to either compare the type of apps or show the availability in both the Google Play Store and the iOS App Store. 
+<br>
+![wc_google_old_neut](image/old_google_neut.png)<br>
+![wc_google_new_neut](image/new_android_neut.png)<br>
+ - Old Tweet: New Social, map, great, party, Social Network
+ - New Tweet: like, know, use, see, help, search, find
+ - Overall, the number of words related to positive sentiment towards Google seems to have decreased. 
+ - Similar to the tweets with neutral sentiment, new tweets seem to be more related to the Google's search engine rather than Google as a company. 
+<br>
+
+![wc_google_old_pos](image/old_android_pos.png)<br>
+![wc_google_new_pos](image/new_android_pos.png)<br>
+ - Old Tweet: Social Network, Major New, Possibly Today, Launch
+ - New Tweet: Search, New, use, map, soft detection, translate
+ - Neutral sentiment towards Google seems to have shifted from texts relating to social media to general uses of the Google search engine. 
+<br>
 
 <a id='Recommendation'></a>
 ## Model Recommendation
