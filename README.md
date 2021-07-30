@@ -96,8 +96,13 @@ While the recall scores for the naive bayesian models with grid search are decen
 
 <a id='WordCloud'></a>
 ## Word Cloud
-Using the tokens and stop words from above, I created some word clouds. The first word cloud shows common words from the tweets that talked about apple in the old twitter. 
-![wc_apple_old](image/wc_apple_old.jpeg)<br>
+Using the tokens and stop words from above, I created some word clouds. The first two images of word clouds show common words from the tweets that had positive sentiment towards Apple in the old and new twitter.<br> 
+![wc_apple_old_pos](image/old_apple_pos.png)<br>
+![wc_apple_new_pos](image/new_apple_pos.png)<br>
+
+![wc_apple_old_neg](image/old_apple_neg.png)<br>
+![wc_apple_new_neg](image/new_apple_neg.png)<br>
+
 
 
 <a id='Recommendation'></a>
